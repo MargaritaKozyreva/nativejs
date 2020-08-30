@@ -1,7 +1,7 @@
 {
   "name": "nativejs",
   "version": "1.0.0",
-  "description": "pure js app",
+  "description": "js native app",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,10 +12,8 @@
     "type": "git",
     "url": "git+https://github.com/MargaritaKozyreva/nativejs.git"
   },
-  "keywords": [
-    "js"
-  ],
-  "author": "MKozyreva <margaritakozyreva@mail.ru>",
+  "author": "Margarita Kozyreva",
+  "email": "margaritakozyreva@mail.ru",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MargaritaKozyreva/nativejs/issues"

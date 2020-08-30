@@ -1,0 +1,30 @@
+.excel__toolbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40px;
+  top: 34px;
+  border-top: 1px solid #c0c0c0;
+  border-bottom: 1px solid #c0c0c0;
+  padding: 7px 10px;
+  display: flex;
+}
+.excel__toolbar .button {
+  height: 24px;
+  min-width: 24px;
+  padding: 3px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.7);
+}
+.excel__toolbar .button > i {
+  font-size: 18px;
+}
+.excel__toolbar .button:active, .excel__toolbar .button.active {
+  color: green;
+}
+.excel__toolbar .button:hover {
+  background: #eee;
+  cursor: pointer;
+}
