@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --content-base src --hot --inline --open"
   },
   "repository": {
     "type": "git",
@@ -44,6 +44,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.10.4"
+    "@babel/polyfill": "^7.10.4",
+    "normalize.css": "^8.0.1"
   }
 }

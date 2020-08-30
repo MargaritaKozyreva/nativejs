@@ -1,11 +1,11 @@
-import './module.js'
-import './scss/style.scss'
+import "./module.js";
+import "./scss/style.scss";
 
-console.log('Work!')
+console.log("Work!");
 
 const testFn = async () => {
-    const res = await (console.log('Hi'))
-    return res
-}
+  const res = await console.log("Hi");
+  return res;
+};
 
-testFn()
+testFn();
