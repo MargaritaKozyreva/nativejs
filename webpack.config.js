@@ -10,6 +10,28 @@ const isDev = process.env.NODE_ENV === "development";
 
 const filename = (ext) => (isProd ? "bundle.[hash]" + ext : "bundle." + ext);
 
+const cssLoader = () => {
+
+  if (isDev) {
+    return ['style-loader', "css-loader", "sass-loader"]
+  }
+
+  return [
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        hmr: isDev,
+        reloadAll: true,
+      },
+    },
+    // Translates CSS into CommonJS
+    "css-loader",
+    // Compiles Sass to CSS
+    "sass-loader",
+  ]
+
+}
+
 const jsLoaders = () => {
   const aLoaders = [
     {
@@ -47,7 +69,6 @@ module.exports = {
   devtool: isDev && "source-map",
   devServer: {
     port: 4000,
-    contentBase: path.resolve(__dirname, "dist"),
     hot: true,
   },
   plugins: [
@@ -63,31 +84,19 @@ module.exports = {
       patterns: [
         {
           from: path.relative(__dirname, "favicon.png"),
-          to: path.relative(__dirname, "../dist"),
+          to: path.relative(__dirname, "dist"),
         },
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: filename(".css"),
+      filename: `css/${filename(".css")}`,
     }),
   ],
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: isDev,
-              reloadAll: true,
-            },
-          },
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
-          "sass-loader",
-        ],
+        test: /\.(sa|sc|c)ss$/,
+        use: cssLoader(),
       },
       {
         test: /\.js$/,
